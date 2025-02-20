@@ -14,7 +14,7 @@ def create_archive():
     if not os.path.exists('tmp'):
         os.mkdir('tmp')
     with zipfile.ZipFile('test.zip', 'w') as zf:
-        for file in 'ТестовыйCSV.csv', 'ТестовыйPDF.pdf', 'ТестовыйXLSX.xls':
+        for file in 'ТестовыйCSV.csv', 'ТестовыйPDF.pdf', 'ТестовыйXLSX.xlsx':
             add_file = os.path.join(TMP_DIR,file)
             zf.write(add_file, os.path.basename(add_file))
     shutil.move("test.zip", TMP_DIR)
