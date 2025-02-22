@@ -10,7 +10,7 @@ from conftest import TMP_DIR
 
 def test_checking_archive_csv(create_archive):
     with zipfile.ZipFile(TMP_DIR+'/test.zip') as zip_file:
-        with zip_file.open('ТестовыйCSV.csv') as csv_file:
+        with zip_file.open('TESTCSV.csv') as csv_file:
             content = csv_file.read().decode(
                 'utf-8-sig')
             csvreader = list(csv.reader(content.splitlines(), delimiter=';'))
@@ -21,7 +21,7 @@ def test_checking_archive_csv(create_archive):
 
 def test_checking_archive_xlsx(create_archive):
     with zipfile.ZipFile(TMP_DIR+'/test.zip') as zip_file:
-        with zip_file.open('ТестовыйXLSX.xlsx') as xlsx_file:
+        with zip_file.open('TESTXLSX.xlsx') as xlsx_file:
             content = load_workbook(xlsx_file)
             sheet = content.active
 
@@ -32,7 +32,7 @@ def test_checking_archive_xlsx(create_archive):
 
 def test_checking_archive_pdf(create_archive):
     with zipfile.ZipFile(TMP_DIR + '/test.zip') as zip_file:
-        with zip_file.open('ТестовыйPDF.pdf') as pdf_file:
+        with zip_file.open('TESTPDF.pdf') as pdf_file:
             reader = PdfReader(pdf_file)
 
             assert len(reader.pages) == 1
